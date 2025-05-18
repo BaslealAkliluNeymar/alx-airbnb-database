@@ -12,7 +12,7 @@ CREATE TABLE User(
 
 CREATE TABLE Property (
     property_id   UUID DEFAULT uuid_generate_v4() Primary Key,
-    host_id FOREIGN KEY(user_id) REFERENCES User(user_id),
+    FOREIGN KEY(user_id) host_id  REFERENCES User(user_id),
     name VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
     location VARCHAR(100) NOT NULL,
@@ -29,7 +29,9 @@ CREATE TABLE Booking (
     start_date TIMESTAMP NOT NULL,
     end_date TIMESTAMP NOT NULL,
     total_price DECIMAL NOT NULL,
-    created_at TIMESTAMP
+    created_at TIMESTAMP,
+    property_id UUID NOT NULL,
+    user_id UUID NOT NULL
 )
 
 CREATE TABLE Review (
@@ -38,7 +40,9 @@ CREATE TABLE Review (
     user_id FOREIGN KEY(user_id) REFERENCES User(user_id),
     rating INT CHECK (rating >= 1 AND rating <= 5),
     comment TEXT,
-    created_at TIMESTAMP
+    created_at TIMESTAMP,
+    property_id UUID NOT NULL,
+    user_id UUID NOT NULL
 )
 CREATE TABLE Payment (
     payment_id UUID DEFAULT uuid_generate_v4() Primary Key,
@@ -46,6 +50,7 @@ CREATE TABLE Payment (
     amount DECIMAL NOT NULL,
     payment_date TIMESTAMP NOT NULL,
     status ENUM('pending', 'completed', 'failed') NOT NULL
+    booking_id UUID NOT NULL
 )
 
 
@@ -56,4 +61,7 @@ CREATE TABLE Message (
     property_id FOREIGN KEY(property_id) REFERENCES Property(property_id),
     content TEXT NOT NULL,
     sent_at TIMESTAMP
+    sender_id UUID NOT NULL
+    receiver_id UUID NOT NULL
+    property_id UUID NOT NULL
 )
