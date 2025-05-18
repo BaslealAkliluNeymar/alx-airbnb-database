@@ -1,0 +1,1 @@
+This is an insert script inorder to seed the database for airbnb database
