@@ -1,3 +1,12 @@
-It has been normalized to the 3NF because all the key in each of the tables depend only on their repective primary keys.
+Objective: Apply normalization principles to ensure the database is in the third normal form (3NF).
 
-Inorder to normalize further. It would be great to take the role from the user table into another table.
+Instructions:
+
+Review your schema and identify any potential redundancies or violations of normalization principles.
+
+Adjust your database design to achieve 3NF, if necessary.
+
+Provide an explanation of your normalization steps in a Markdown file.
+
+
+##The Database has already been normalized to the third normal form(3NF)
