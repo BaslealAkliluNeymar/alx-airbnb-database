@@ -4,6 +4,3 @@ CREATE INDEX idx_created_at ON bookings(created_at);
 
 
 
-user_id,
-property_id
-created_at
