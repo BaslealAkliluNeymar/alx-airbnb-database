@@ -1,39 +1,38 @@
-Select 
+SELECT 
     *
-from 
+FROM 
     user as user 
-full outer join 
+FULL OUTER JOIN 
     bookings as booking
-on 
+ON
     user.user_id = booking.user_id
-full outer join 
+FULL OUTER JOIN 
     properties as property
-on 
+ON
     booking.property_id = property.property_id
-full outer join 
+FULL OUTER JOIN
     Payments as payment
-on 
+ON
     booking.booking_id = payment.booking_id
 
 
 EXPLAIN ANALYZE
-    Select 
+    SELECT 
         *
-    from 
+    FROM 
         user as user 
-    full outer join 
+    FULL OUTER JOIN 
         bookings as booking
-    on 
+    ON
         user.user_id = booking.user_id
-    full outer join 
+    FULL OUTER JOIN 
         properties as property
-    on 
+    ON
         booking.property_id = property.property_id
-    full outer join 
+    FULL OUTER JOIN
         Payments as payment
-    on 
+    ON
         booking.booking_id = payment.booking_id
-
 
 create index idx_user_id on user(user_id);
 create index idx_booking_id on bookings(booking_id);
