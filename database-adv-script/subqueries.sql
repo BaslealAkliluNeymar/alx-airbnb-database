@@ -26,7 +26,7 @@ from
 Join (
     SELECT
         user_id,
-        count(booking_id) as total_bookings
+        COUNT(booking_id) as total_bookings
     from
         Bookings
     group by    
@@ -35,7 +35,7 @@ Join (
 
 on booking.user_id = user_bookings.user_id
 where
-    user_bookings.total_bookings > 2;
+    user_bookings.total_bookings > 3;
 
 
 
