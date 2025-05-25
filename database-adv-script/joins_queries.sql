@@ -19,6 +19,8 @@ LEFT JOIN
     Review as review
 ON 
     property.property_id = review.property_id
+ORDER BY 
+   review.rating DESC
 
 
 
